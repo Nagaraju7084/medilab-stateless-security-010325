@@ -1,5 +1,7 @@
 package com.medilab.preclinic.config;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,9 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfToken;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
 
 @SuppressWarnings("deprecation")
 @Configuration
@@ -24,10 +29,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception { 
-		http.authorizeRequests()
-		.antMatchers("/").permitAll()
+		http
+		.csrf().csrfTokenRepository(new CookieCsrfTokenRepository().withHttpOnlyFalse())
+		.and()
+		.authorizeRequests()
+		.antMatchers("/home").permitAll()
 		.antMatchers("/dashboard").authenticated()
-		.antMatchers("/doctor").authenticated()
+		//.antMatchers("/doctors").authenticated()
+		.antMatchers("/doctors").hasRole("doctor")
+		.antMatchers("/api/*").authenticated()
 		.and()
 		.formLogin()
 		.and()

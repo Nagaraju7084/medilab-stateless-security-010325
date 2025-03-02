@@ -26,7 +26,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		MedilabUser databaseUser = userRepository.findUserByEmail(username);
 		List<SimpleGrantedAuthority> authoritiesList = new ArrayList<>();
 		UserRole userRole = databaseUser.getRole();
-		authoritiesList.add(new SimpleGrantedAuthority(userRole.getName()));
+		authoritiesList.add(new SimpleGrantedAuthority("ROLE_" + userRole.getName()));
 		return new User(databaseUser.getEmail(), databaseUser.getPassword(), authoritiesList); //here user is the implementation class of userdetails
 	}
 

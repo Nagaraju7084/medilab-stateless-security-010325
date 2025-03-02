@@ -240,5 +240,11 @@ peterk/12345
 charles@gmail.com/charles
 mike@gmail.com/mike
 
+cors = cross origin resource sharing
+cors is a protocol that enables scripts running on a browser client to interact with the resource from a different origin
+cors will shares the resources and accepts the resources from different origins
+if the micro services using the different protocol/different domain/different port then we will get the cors error
+Option = its used for redirect the request but while redirecting the request we can loss the data present in the headers
+403 = user is authenticated but not authorized to access the application
 
 
