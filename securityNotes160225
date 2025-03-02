@@ -10,7 +10,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/").permitAll() //this will allow all urls to access meaning without security
 		.antMatchers("/dashboard").authenticated() //should be authenticate
-		.antMatchers("/doctor").authenticated() //should be authenticate
+		.antMatchers("/doctors").authenticated() //should be authenticate
 		.and()
 		.formLogin() //either through form login
 		.and()
@@ -65,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/").permitAll()
 		.antMatchers("/dashboard").authenticated()
-		.antMatchers("/doctor").authenticated()
+		.antMatchers("/doctors").authenticated()
 		.and()
 		.formLogin()
 		.and()
@@ -119,7 +119,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/").permitAll()
 		.antMatchers("/dashboard").authenticated()
-		.antMatchers("/doctor").authenticated()
+		.antMatchers("/doctors").authenticated()
 		.and()
 		.formLogin()
 		.and()
