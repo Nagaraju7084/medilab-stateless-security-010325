@@ -52,6 +52,7 @@ public class MedilabDoctorServiceImpl implements MedilabDoctorService {
 	 * preclinic.bean.DoctorBean)
 	 */
 	@Override
+	@PreAuthorize("hasPermission('Doctor','CREATE')")
 	public DoctorBean save(DoctorBean doctBean) {
 		Doctor doctModel = new Doctor();
 		Address addrModel = new Address();
