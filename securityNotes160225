@@ -249,3 +249,12 @@ Option = its used for redirect the request but while redirecting the request we 
 
 properties changes will not detect the devtools from spring boot 2.x on words
 
+writing custom filters
+we can embed our custom filter or our custom filter can be write either by extending by the generic filter or by extending the onceperrequest filter
+generic filter is an abstract class filter which allows us to use the initialization parameters and configurations done through the web.xml
+if we write any other filter spring doesn't guaranty that our filter will called only once but if we use onceperrequest filter spring will give the guaranty
+that our filter will be called for each and every request
+
+customfilter will execute before the default filter execution
+best example is jwt token generation
+
