@@ -258,3 +258,18 @@ that our filter will be called for each and every request
 customfilter will execute before the default filter execution
 best example is jwt token generation
 
+040325 :
+if only jsessionid we have, there is a chance of occuring the csrf attack
+attackers can steal jseesionid, send a fake request to our application to steel the application's data
+on top of the jsessionid, we attached the csrf token, that csrf doesn'e contains the user details
+like username, authorities of the user such as when the toke issued, when the token expired, etc
+meaning csrf token is not maintaining the user identities so we want other token where the
+user identities are maintaining and hence we will go for the
+ui application will have the token and keep on exchanged with the other services
+token based security to know the user identity
+
+in order to exchange user identity in between client application and server application
+we will go for a token based security
+
+jwt widely used because its cross platform compatibility and lightweight and also jwt
+can be used to retrieve the more user information
